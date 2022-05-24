@@ -15,31 +15,14 @@ rt = False
 #6 ques
 #research on how to publish python website
 
-read = pd.read_csv('quizdbase.csv')
 
 nme = st.text_input('Enter your Name')
-wn = list(read['Name'])
 
 eml = st.text_input('Enter your Email')
-we = list(read['Email'])
 
 if st.button('submit'):
-    dic = {
-        'Name': [wn],
-        'Email': [we]
-    }
     if nme == '':
         flag = True
-    if eml == '':
-        flag = True
-    rt = True
-
-    if flag==False:
-        wn.append(nme)
-        we.append(eml)
-
-if rt==False:
-    flag=True
 
 st.markdown('''___''')
 
@@ -110,16 +93,6 @@ if st.button('Google'):
 st.markdown('''___''')
 
 if st.button('Done!'):
-    ws = list(read['Score'])
-    scr = qz
-    ws.append(scr)
-    ws.pop(-1)
-    print(ws)
-    dict = {
-        'Name': list(wn),
-        'Email': list(we),
-        'Score': list(ws)
-    }
     st.snow()
     st.write('')
     st.info('Score: '+ str(qz))
